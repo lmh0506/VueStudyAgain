@@ -4,7 +4,7 @@
     <category></category>
     <div class="br"></div>
     <ad></ad>
-    home
+    <list></list>
   </div>
 </template>
 
@@ -12,6 +12,7 @@
   import VueHeader from '@/base/Header/Header'
   import Category from '@/base/Category/Category'
   import Ad from './subpage/Ad'
+  import List from './subpage/List'
 
   export default {
     data () {
@@ -21,7 +22,8 @@
     components: {
       VueHeader,
       Category,
-      Ad
+      Ad,
+      List
     }
   }
 </script>

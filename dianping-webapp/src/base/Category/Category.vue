@@ -39,17 +39,12 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang='scss'>
+<style lang='scss' scoped>
   .swiper-box {
     width: 100%;
     height: 130px;
     background: #fff;
   }
-
-  .swiper-pagination-bullet-active {
-    background: rgb(233, 32, 61) !important;
-  }
-
 
   .swiper-item {
     ul {

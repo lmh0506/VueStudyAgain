@@ -10,7 +10,11 @@ export default {
 }
 </script>
 
-<style lang='sass'>
-  @import './assets/css/common.scss'
-  @import './assets/css/font.css'
+<style lang='scss'>
+  @import './assets/css/common.scss';
+  @import './assets/css/font.css';
+  
+  .swiper-pagination-bullet-active {
+    background: rgb(233, 32, 61) !important;
+  }
 </style>
