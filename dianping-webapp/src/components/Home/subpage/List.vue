@@ -2,7 +2,8 @@
   <div>
     <h2 class="home-list-title">猜你喜欢</h2>
     <list :list='list'></list>
-    <loading :isShow='loading'></loading>
+    <loading :isShow='isLoadingMore'></loading>
+    <load-more @loadMore='loadMoreData' :isLoad='!isLoadingMore' :hasMore='hasMore' ></load-more>
   </div>
 </template>
 
@@ -12,14 +13,15 @@
   import {ERR_OK} from 'fetch/config'
   import List from '@/base/List/List'
   import Loading from '@/base/Loading/Loading'
+  import LoadMore from '@/base/LoadMore/LoadMore'
 
   export default {
     data () {
       return {
         list: [],
         page: 0,
-        hasMore: false,
-        loading: true
+        hasMore: false, // 记录当前状态下 还有没有更多的数据可供加载
+        isLoadingMore: false // 记录当前状态下是加载中还是点击加载更多
       }
     },
     computed: {
@@ -28,19 +30,28 @@
       ])
     },
     methods: {
-      loadFirstPageData () {
-        getListData(this.cityName, 0).then(res => {
+      getListData (more) {
+        getListData(this.cityName, more ? this.page : 0).then(res => {
           if (res.data.error === ERR_OK) {
-            this.list = res.data.data.data
-            this.hasMore = res.data.data.hasMore
-            this.loading = false
+            this.list = more ? this.list.concat(res.data.data.data) : res.data.data.data
+            this.hasMore = Math.random() > 0.3
+            this.isLoadingMore = false
           }
         })
+      },
+      loadFirstPageData () {
+        this.getListData(false)
+      },
+      loadMoreData () { // 加载更多数据
+        this.page ++
+        this.isLoadingMore = true
+        this.getListData(true)
       }
     },
     components: {
       List,
-      Loading
+      Loading,
+      LoadMore
     },
     mounted () {
       this.loadFirstPageData()

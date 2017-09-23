@@ -13,6 +13,7 @@ apiRoutes.get('/homead', (req, res) => {
 // 首页 —— 推荐列表（猜你喜欢）
 var homeListData = require('../mock/home/list.js')
 apiRoutes.get('/homelist/:city/:page', (req, res) => {
+
   // 参数
   let params = req.params
   let paramsCity = params.city

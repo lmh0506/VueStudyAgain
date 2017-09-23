@@ -1,9 +1,9 @@
 <template>
   <div id="home-header" class="clear-fix">
-    <div class="home-header-left float-left">
+    <router-link tag="div" to="/City" class="home-header-left float-left">
       {{cityName}}&nbsp;
       <i class="icon-angle-down"></i>
-    </div>
+    </router-link>
     <div class="home-header-right float-right">
       <i class="icon-user"></i>
     </div>
