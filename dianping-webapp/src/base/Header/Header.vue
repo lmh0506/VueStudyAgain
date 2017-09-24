@@ -10,7 +10,7 @@
     <div class="home-header-middle">
       <div class="search-container">
         <i class="icon-search"></i>
-        <input type="text" placeholder="请输入关键字">
+        <input type="text" @keyup.enter='blur' @blur="blur" v-model.trim="keyWord" placeholder="请输入关键字">
       </div>
     </div>
   </div>
@@ -22,12 +22,20 @@
   export default {
     data () {
       return {
+        keyWord: ''
       }
     },
     computed: {
       ...mapState([
         'cityName'
       ])
+    },
+    methods: {
+      blur () {
+        if (this.keyWord) {
+          this.$router.push('/search/all/' + this.keyWord)
+        }
+      }
     }
   }
 </script>

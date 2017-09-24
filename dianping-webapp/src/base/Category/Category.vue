@@ -2,7 +2,7 @@
   <swiper :options="swiperOption" class="swiper-box">
     <swiper-slide class="swiper-item" v-for="(items, index) in swiperSlides" :key="index">
       <ul>
-        <li v-for="(item, index) in items" :class="item" :key="index"></li>
+        <router-link tag="li" :to="{name: 'SearchType', params: {type: item}}" v-for="(item, index) in items" :class="item" :key="index"></router-link>
       </ul>
     </swiper-slide>
     <div class="swiper-pagination" slot="pagination"></div>

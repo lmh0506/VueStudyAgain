@@ -28,6 +28,11 @@ export default new Router({
       component: User
     },
     {
+      path: '/search/:type',
+      name: 'SearchType',
+      component: Search
+    },
+    {
       path: '/search/:type/:keyword',
       name: 'Search',
       component: Search
