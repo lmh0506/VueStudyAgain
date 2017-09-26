@@ -9,13 +9,19 @@
 
 <script>
   export default {
-    data () {
-      return {
+    props: {
+      isBack: {
+        type: Boolean,
+        default: true
       }
     },
     methods: {
       back () {
-        this.$router.back()
+        if (this.isBack) {
+          this.$router.back()
+        } else {
+          this.$router.go(-2)
+        }
       }
     }
   }

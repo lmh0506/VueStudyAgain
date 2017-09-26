@@ -4,7 +4,7 @@
       {{cityName}}&nbsp;
       <i class="icon-angle-down"></i>
     </router-link>
-    <div class="home-header-right float-right">
+    <div class="home-header-right float-right" @click="toUser">
       <i class="icon-user"></i>
     </div>
     <div class="home-header-middle">
@@ -27,13 +27,21 @@
     },
     computed: {
       ...mapState([
-        'cityName'
+        'cityName',
+        'userInfo'
       ])
     },
     methods: {
       blur () {
         if (this.keyWord) {
           this.$router.push('/search/all/' + this.keyWord)
+        }
+      },
+      toUser () {
+        if (this.userInfo.userName) {
+          this.$router.push('/User')
+        } else {
+          this.$router.push('/login')
         }
       }
     }

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '@/components/Home/Home'
 import City from '@/components/City/City'
 import User from '@/components/User/User'
+import Login from '@/components/Login/Login'
 import Search from '@/components/Search/Search'
 import Detail from '@/components/Detail/Detail'
 import NotFound from '@/components/404'
@@ -21,6 +22,11 @@ export default new Router({
       path: '/city',
       name: 'City',
       component: City
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
     },
     {
       path: '/User',

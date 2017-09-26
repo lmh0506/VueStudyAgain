@@ -1,6 +1,6 @@
 <template>
   <div class="star-container">
-    <i v-for="(item, index) in max" :key="index" class="icon-star" :class="{'light': item <= num}"></i>
+    <i v-for="(item, index) in max" :key="index" class="icon-star" :class="{'light': item <= num}" @click="editStar(index)"></i>
   </div>
 </template>
 
@@ -15,6 +15,17 @@
       num: {
         type: Number,
         default: 0
+      },
+      edit: {
+        type: Boolean,
+        default: false
+      }
+    },
+    methods: {
+      editStar (index) {
+        if (this.edit) {
+          this.$emit('editStar', index + 1)
+        }
       }
     }
   }

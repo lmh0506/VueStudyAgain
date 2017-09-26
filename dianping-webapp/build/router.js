@@ -119,7 +119,7 @@ apiRoutes.post('/submitComment', (req, res) => {
   console.log('提交评论')
 
   res.json({
-    errno: 0,
+    error: 0,
     msg: 'ok'
   })
 })
